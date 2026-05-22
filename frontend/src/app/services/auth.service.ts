@@ -40,6 +40,10 @@ export class AuthService {
     return this.http.post<UserResponse>(`${this.apiUrl}/register`, payload);
   }
 
+  getCurrentUser(): Observable<UserResponse> {
+    return this.http.get<UserResponse>(`${this.apiUrl}/me`);
+  }
+
   login(payload: LoginPayload): Observable<TokenResponse> {
     return this.http.post<TokenResponse>(`${this.apiUrl}/login`, payload).pipe(
       tap((response) => {

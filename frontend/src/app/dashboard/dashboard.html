@@ -5,16 +5,41 @@
   </header>
 
   <main class="dashboard-content">
-    <div class="welcome-card">
-      <h2>Welcome back! 👋</h2>
-      @if (email) {
-        <p>You are logged in as <strong>{{ email }}</strong></p>
-      }
-      <p class="muted">
-        This is a protected route — you can only see this page because your JWT
-        is valid. Try opening this URL in a private window: you'll be redirected
-        to login.
-      </p>
-    </div>
+    @if (loading()) {
+      <div class="card center">
+        <p class="muted">Loading your account...</p>
+      </div>
+    } @else if (error()) {
+      <div class="card error">
+        <p>{{ error() }}</p>
+      </div>
+    } @else if (user(); as u) {
+      <div class="card">
+        <h2>Welcome back, {{ u.full_name || u.email }} 👋</h2>
+        <p class="muted">
+          This data came from the <code>/me</code> endpoint &mdash; your JWT was
+          sent automatically by the HTTP interceptor and verified on the server.
+        </p>
+
+        <dl class="user-details">
+          <div>
+            <dt>User ID</dt>
+            <dd>{{ u.id }}</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd>{{ u.email }}</dd>
+          </div>
+          <div>
+            <dt>Full name</dt>
+            <dd>{{ u.full_name || '—' }}</dd>
+          </div>
+          <div>
+            <dt>Member since</dt>
+            <dd>{{ u.created_at | date: 'medium' }}</dd>
+          </div>
+        </dl>
+      </div>
+    }
   </main>
 </div>

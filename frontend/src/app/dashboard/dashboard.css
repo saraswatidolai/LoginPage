@@ -41,28 +41,80 @@
   padding: 2rem;
 }
 
-.welcome-card {
+.card {
   background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.welcome-card h2 {
+.card.center {
+  text-align: center;
+}
+
+.card.error {
+  border-left: 4px solid #c53030;
+  color: #c53030;
+}
+
+.card h2 {
   margin: 0 0 0.75rem;
   color: #1a202c;
   font-size: 1.5rem;
 }
 
-.welcome-card p {
-  margin: 0 0 0.5rem;
+.card p {
+  margin: 0 0 1.5rem;
   color: #2d3748;
   font-size: 1rem;
   line-height: 1.5;
 }
 
-.welcome-card .muted {
-  color: #718096;
+.muted {
+  color: #718096 !important;
   font-size: 0.9rem;
-  margin-top: 1rem;
+}
+
+code {
+  background: #edf2f7;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #2d3748;
+}
+
+.user-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid #edf2f7;
+}
+
+.user-details > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #718096;
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
+.user-details dd {
+  margin: 0;
+  color: #1a202c;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+@media (max-width: 500px) {
+  .user-details {
+    grid-template-columns: 1fr;
+  }
 }

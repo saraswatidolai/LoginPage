@@ -64,3 +64,8 @@ def login(credentials: schemas.UserLogin, db: Session = Depends(get_db)):
 
     token = auth.create_access_token({"sub": user.email, "user_id": user.id})
     return {"access_token": token, "token_type": "bearer"}
+
+
+@app.get("/me", response_model=schemas.UserResponse)
+def get_me(current_user: models.User = Depends(auth.get_current_user)):
+    return current_user
