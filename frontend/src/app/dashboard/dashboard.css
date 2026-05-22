@@ -1,0 +1,68 @@
+.dashboard {
+  min-height: 100vh;
+  background: #f7fafc;
+}
+
+.dashboard-header {
+  background: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #1a202c;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.logout-btn {
+  padding: 0.5rem 1.1rem;
+  background: #ffffff;
+  color: #c53030;
+  border: 1px solid #fed7d7;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.logout-btn:hover {
+  background: #fff5f5;
+}
+
+.dashboard-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.welcome-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-card h2 {
+  margin: 0 0 0.75rem;
+  color: #1a202c;
+  font-size: 1.5rem;
+}
+
+.welcome-card p {
+  margin: 0 0 0.5rem;
+  color: #2d3748;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.welcome-card .muted {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}

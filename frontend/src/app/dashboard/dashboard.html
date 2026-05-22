@@ -1,0 +1,20 @@
+<div class="dashboard">
+  <header class="dashboard-header">
+    <h1>Dashboard</h1>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </header>
+
+  <main class="dashboard-content">
+    <div class="welcome-card">
+      <h2>Welcome back! 👋</h2>
+      @if (email) {
+        <p>You are logged in as <strong>{{ email }}</strong></p>
+      }
+      <p class="muted">
+        This is a protected route — you can only see this page because your JWT
+        is valid. Try opening this URL in a private window: you'll be redirected
+        to login.
+      </p>
+    </div>
+  </main>
+</div>
