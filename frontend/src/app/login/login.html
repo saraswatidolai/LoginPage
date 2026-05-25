@@ -1,13 +1,13 @@
 <div class="auth-container">
   <div class="auth-card">
-    <h1>Welcome back</h1>
-    <p class="subtitle">Login to your account</p>
+    <h1 class="brand">LoginApp</h1>
+    <p class="subtitle">Sign in to continue</p>
 
     @if (errorMessage()) {
       <div class="error-banner">{{ errorMessage() }}</div>
     }
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
       <div class="form-group">
         <label for="email">Email</label>
         <input
@@ -15,7 +15,7 @@
           type="email"
           formControlName="email"
           placeholder="you@example.com"
-          autocomplete="email"
+          autocomplete="off"
         />
         @if (form.controls.email.touched && form.controls.email.errors) {
           <small class="field-error">
@@ -36,7 +36,7 @@
             [type]="showPassword() ? 'text' : 'password'"
             formControlName="password"
             placeholder="At least 6 characters"
-            autocomplete="current-password"
+            autocomplete="new-password"
           />
           <button
             type="button"
