@@ -19,6 +19,7 @@ export class Register {
   loading = signal(false);
   errorMessage = signal<string | null>(null);
   successMessage = signal<string | null>(null);
+  showPassword = signal(false);
 
   form = this.fb.nonNullable.group({
     full_name: ['', [Validators.required, Validators.maxLength(100)]],

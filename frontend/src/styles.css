@@ -12,3 +12,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
