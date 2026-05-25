@@ -26,6 +26,15 @@ export interface UserResponse {
   created_at: string;
 }
 
+export interface ChangePasswordPayload {
+  current_password: string;
+  new_password: string;
+}
+
+export interface MessageResponse {
+  message: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
@@ -42,6 +51,13 @@ export class AuthService {
 
   getCurrentUser(): Observable<UserResponse> {
     return this.http.get<UserResponse>(`${this.apiUrl}/me`);
+  }
+
+  changePassword(payload: ChangePasswordPayload): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(
+      `${this.apiUrl}/me/password`,
+      payload,
+    );
   }
 
   login(payload: LoginPayload): Observable<TokenResponse> {

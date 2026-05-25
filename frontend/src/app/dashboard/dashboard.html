@@ -1,7 +1,10 @@
 <div class="dashboard">
   <header class="dashboard-header">
     <h1>Dashboard</h1>
-    <button class="logout-btn" (click)="logout()">Logout</button>
+    <nav class="header-actions">
+      <a class="action-link" routerLink="/change-password">Change password</a>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </nav>
   </header>
 
   <main class="dashboard-content">
