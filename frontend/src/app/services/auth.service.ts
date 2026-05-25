@@ -35,6 +35,15 @@ export interface MessageResponse {
   message: string;
 }
 
+export interface ForgotPasswordPayload {
+  email: string;
+}
+
+export interface ResetPasswordPayload {
+  token: string;
+  new_password: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
@@ -56,6 +65,24 @@ export class AuthService {
   changePassword(payload: ChangePasswordPayload): Observable<MessageResponse> {
     return this.http.post<MessageResponse>(
       `${this.apiUrl}/me/password`,
+      payload,
+    );
+  }
+
+  requestPasswordReset(
+    payload: ForgotPasswordPayload,
+  ): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(
+      `${this.apiUrl}/password-reset/request`,
+      payload,
+    );
+  }
+
+  confirmPasswordReset(
+    payload: ResetPasswordPayload,
+  ): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(
+      `${this.apiUrl}/password-reset/confirm`,
       payload,
     );
   }

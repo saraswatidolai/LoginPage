@@ -65,6 +65,10 @@
       <button type="submit" [disabled]="form.invalid || loading()">
         {{ loading() ? 'Logging in...' : 'Login' }}
       </button>
+
+      <p class="forgot-link">
+        <a routerLink="/forgot-password">Forgot password?</a>
+      </p>
     </form>
 
     <p class="auth-footer">
